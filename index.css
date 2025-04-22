@@ -60,14 +60,21 @@ body {
     text-decoration: underline;
 }
 .publication-block .publication-image {
+    display: flex;
+    align-items: center;       /* vertical centering */
+    justify-content: center;   /* horizontal centering */
     border-radius: 2%;
     width: 100%;
     height: 100%;
     overflow: hidden;
     font-size: 0;
 }
+
 .publication-block .publication-image img {
     width: 100%;
+    height: auto;
+    border-radius: 2%;         /* apply same rounding to the image itself */
+    display: block;
 }
 .publication-block .publication-mousecell {
     position: relative;
