@@ -113,6 +113,11 @@ body {
     margin-bottom: 0.5rem;
 }
 
+.news-item .tag {
+    margin-right: 0.75rem;
+}
+
+
 .footer {
     padding: 0.8rem 0.8rem 0.8rem;
 }
