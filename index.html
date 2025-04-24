@@ -438,38 +438,44 @@
       <p>Inspired from <a href="https://wonjunior.github.io/">Ivan Lopes's website</a>.</p>
     </div>
   </footer>
+
+  <!-- GitHub buttons (non-blocking) -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Markdown parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const showMoreBtn = document.querySelector('.show-more-btn');
-    const contentOld = document.querySelector('.content-old');
-    
-    showMoreBtn.addEventListener('click', function() {
-      if (contentOld.style.display === 'none') {
-        contentOld.style.display = 'block';
-        showMoreBtn.textContent = 'Show Less';
-      } else {
-        contentOld.style.display = 'none';
-        showMoreBtn.textContent = 'Show More';
-      }
-    });
+    document.addEventListener('DOMContentLoaded', function() {
+      // Show more button logic
+      const showMoreBtn = document.querySelector('.show-more-btn');
+      const contentOld = document.querySelector('.content-old');
 
-    document.querySelectorAll('a').forEach(link => {
-      if (!link.hasAttribute('target') && !link.href.startsWith('mailto:')) {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
+      if (showMoreBtn && contentOld) {
+        showMoreBtn.addEventListener('click', function() {
+          if (contentOld.style.display === 'none') {
+            contentOld.style.display = 'block';
+            showMoreBtn.textContent = 'Show Less';
+          } else {
+            contentOld.style.display = 'none';
+            showMoreBtn.textContent = 'Show More';
+          }
+        });
       }
+
+      // Open all external links in new tab
+      document.querySelectorAll('a').forEach(link => {
+        if (!link.hasAttribute('target') && !link.href.startsWith('mailto:')) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+
+      // Fetch and insert markdown bio
+      fetch('about.md')
+        .then(response => response.text())
+        .then(text => {
+          document.getElementById('bio-content').innerHTML = marked.parse(text);
+        });
     });
-  });
   </script>
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script>
-  fetch('about.md')
-    .then(response => response.text())
-    .then(text => {
-      document.getElementById('bio-content').innerHTML = marked.parse(text);
-    });
-</script>
 </body>
