@@ -474,7 +474,7 @@
           if (!match) return '';
           const [_, label, url] = match;
           let icon = '';
-          if (url.includes('arxiv.org')) {
+          if (label.toLowerCase().includes('arxiv') || url.includes('arxiv.org')) {
             icon = '<i class="ai ai-arxiv"></i>';
           } else if (label.toLowerCase().includes('code') || url.includes('github')) {
             icon = '<i class="fab fa-github"></i>';
