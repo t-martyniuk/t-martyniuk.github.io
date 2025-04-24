@@ -435,50 +435,81 @@
   </script>
 
   <script>
-    fetch('lidpm.md')
-      .then(res => res.text())
-      .then(markdown => {
-        const rawBlocks = markdown.split('### ').filter(Boolean);
-        const container = document.getElementById('publications-container');
+    async function fetchAndRenderPublications() {
+      const response = await fetch('lidpm.md');
+      const mdText = await response.text();
+      const pubBlocks = mdText.split(/^### /gm).filter(Boolean);
 
-        rawBlocks.forEach(block => {
-          const lines = block.trim().split('\n');
-          const title = lines[0];
-          const authors = lines.find(line => line.startsWith('**Authors:**'))?.replace('**Authors:**', '').trim();
-          const venue = lines.find(line => line.startsWith('**Venue:**'))?.replace('**Venue:**', '').trim();
-          const descriptionIndex = lines.findIndex(line => line.startsWith('**Description:**'));
-          const links = lines.filter(line => line.startsWith('['));
-          const image = lines.find(line => line.startsWith('**Image:**'))?.replace('**Image:**', '').trim();
+      const container = document.getElementById('publications-container');
+      pubBlocks.forEach(block => {
+        const titleMatch = block.match(/^(.*?)\n/);
+        const title = titleMatch ? titleMatch[1].trim() : '';
 
-          const description = lines.slice(descriptionIndex + 1, links[0] ? lines.indexOf(links[0]) : lines.length).join('<br>');
+        const authorsMatch = block.match(/\*\*Authors:\*\*\s*(.*?)\s*(\n|$)/);
+        const authors = authorsMatch ? authorsMatch[1].trim() : '';
+        const authorList = authors.split(',').map(a => a.trim());
 
-          const linksHTML = links.map(link => {
-            const match = /\[(.*?)\]\((.*?)\)/.exec(link);
-            return `<a class="external-link button is-link is-light" href="${match[2]}" target="_blank" rel="noopener noreferrer">
-                      <span class="icon"><i class="fa fa-external-link-alt"></i></span>
-                      <span>${match[1]}</span>
-                    </a>`;
-          }).join('');
+        const venueMatch = block.match(/\*\*Venue:\*\*\s*(.*?)\s*(\n|$)/);
+        const venue = venueMatch ? venueMatch[1].trim() : '';
 
-          container.innerHTML += `
-            <div class="publication-block columns is-vcentered">
-              <div class="column is-3">
-                <div class="publication-image">
-                  <img src="${image}" alt="">
-                </div>
+        const descriptionMatch = block.match(/\*\*Description:\*\*[\s\S]*?\n([\s\S]*?)(?=(\*\*Links:\*\*|\*\*Image:\*\*|$))/);
+        const description = descriptionMatch ? descriptionMatch[1].trim() : '';
+
+        const linksMatch = block.match(/\*\*Links:\*\*[\s\S]*?((https?:\/\/[^\s\n]+)[\s\S]*?)(?=(\*\*Image:\*\*|$))/);
+        const linksBlock = linksMatch ? linksMatch[1].trim().split(/\n/) : [];
+
+        const imageMatch = block.match(/\*\*Image:\*\*\s*(.*?)\s*(\n|$)/);
+        const imageUrl = imageMatch ? imageMatch[1].trim() : '';
+
+        const authorsHtml = authorList.map(name =>
+          name.includes('Tetiana Martyniuk')
+            ? `<span class="author-block author-me">${name},</span>`
+            : `<span class="author-block">${name}</span>`
+        ).join(' ');
+
+        const linksHtml = linksBlock.map(linkLine => {
+          const match = linkLine.match(/\[(.*?)\]\((.*?)\)/);
+          if (!match) return '';
+          const [_, label, url] = match;
+          let icon = '';
+          if (label.toLowerCase().includes('arxiv')) {
+            icon = '<i class="ai ai-arxiv"></i>';
+          } else if (label.toLowerCase().includes('code') || url.includes('github')) {
+            icon = '<i class="fab fa-github"></i>';
+          } else {
+            icon = '<i class="fas fa-external-link-alt"></i>';
+          }
+          return `
+            <a class="external-link button is-link is-light" href="${url}">
+              <span class="icon">${icon}</span>
+              <span>${label}</span>
+            </a>
+          `;
+        }).join('');
+
+        const html = `
+          <div class="publication-block columns is-vcentered">
+            <div class="column is-3">
+              <div class="publication-image">
+                <img alt="" src="${imageUrl}">
               </div>
-              <div class="column">
-                <div class="content">
-                  <h3 class="publication-title"><span>${title}</span></h3>
-                  <div class="publication-authors"><span class="author-block">${authors}</span></div>
-                  <div class="publication-venue"><span>${venue}</span></div>
-                  <p class="publication-description mb-0">${description}</p>
-                  <div class="publication-links field has-addons">${linksHTML}</div>
-                </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <h3 class="publication-title"><span>${title}</span></h3>
+                <div class="publication-authors">${authorsHtml}</div>
+                <div class="publication-venue"><span>${venue}</span></div>
+                <p class="publication-description mb-0">${description}</p>
+                <div class="publication-links field has-addons">${linksHtml}</div>
               </div>
-            </div>`;
-        });
+            </div>
+          </div>
+        `;
+        container.innerHTML += html;
       });
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchAndRenderPublications);
   </script>
 
 
