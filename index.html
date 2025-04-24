@@ -46,7 +46,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css">
 
   <!-- Stylesheets -->
   <link href="bulma.min.css" rel="stylesheet">
@@ -120,7 +119,52 @@
       <!-- Conference Papers -->
       <h3 class="title is-4 mt-5">Conference Papers</h3>
       <!-- LiDPM -->
-      <div id="publications-container"></div>
+      <div class="publication-block columns is-vcentered">
+
+        <div class="column is-3">
+          <div class="publication-image ">
+
+            <img alt="" src="media/LiDPM_bigger_zoom.png">
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="content">
+
+            <h3 class="publication-title">
+              <span>LiDPM: Rethinking Point Diffusion for Lidar Scene Completion</span>
+            </h3>
+
+            <div class="publication-authors">
+              <span class="author-block author-me">
+                Tetiana Martyniuk,
+              </span>
+              <span class="author-block ">
+                Gilles Puy, Alexandre Boulch, Renaud Marlet, Raoul de Charette
+              </span>
+            </div>
+
+            <div class="publication-venue">
+              <span>IEEE IV 2025</span>
+            </div>
+
+            <p class="publication-description mb-0">
+              LiDPM is a diffusion model for scene-level LiDAR completion that leverages a vanilla DDPM avoiding the need for local diffusion approximations.
+            <div class="publication-links field has-addons">
+<!--              TODO: edit arxiv link-->
+              <a class="external-link button is-link is-light" href="https://t-martyniuk.github.io/">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
+              <a class="external-link button is-link is-light" href="https://github.com/astra-vision/LiDPM">
+                <span class="icon"><i class="fa fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
       <!-- FEAR -->
       <div class="publication-block columns is-vcentered">
 
@@ -434,85 +478,4 @@
         });
     });
   </script>
-
-  <script>
-    async function fetchAndRenderPublications() {
-      const response = await fetch('lidpm.md');
-      const mdText = await response.text();
-      const pubBlocks = mdText.split(/^### /gm).filter(Boolean);
-
-      const container = document.getElementById('publications-container');
-      pubBlocks.forEach(block => {
-        const titleMatch = block.match(/^(.*?)\n/);
-        const title = titleMatch ? titleMatch[1].trim() : '';
-
-        const authorsMatch = block.match(/\*\*Authors:\*\*\s*(.*?)\s*(\n|$)/);
-        const authors = authorsMatch ? authorsMatch[1].trim() : '';
-        const authorList = authors.split(',').map(a => a.trim());
-
-        const venueMatch = block.match(/\*\*Venue:\*\*\s*(.*?)\s*(\n|$)/);
-        const venue = venueMatch ? venueMatch[1].trim() : '';
-
-        const descriptionMatch = block.match(/\*\*Description:\*\*[\s\S]*?\n([\s\S]*?)(?=(\*\*Links:\*\*|\*\*Image:\*\*|$))/);
-        const description = descriptionMatch ? descriptionMatch[1].trim() : '';
-
-        const linksMatch = block.match(/\*\*Links:\*\*[\s\S]*?((https?:\/\/[^\s\n]+)[\s\S]*?)(?=(\*\*Image:\*\*|$))/);
-        const linksBlock = linksMatch ? linksMatch[1].trim().split(/\n/) : [];
-
-        const imageMatch = block.match(/\*\*Image:\*\*\s*(.*?)\s*(\n|$)/);
-        const imageUrl = imageMatch ? imageMatch[1].trim() : '';
-
-        const authorsHtml = authorList.map((name, idx) => {
-          const comma = idx < authorList.length - 1 ? ',' : '';
-          const cls = name.includes('Tetiana Martyniuk') ? 'author-block author-me' : 'author-block';
-          return `<span class="${cls}">${name}${comma}</span>`;
-        }).join(' ');
-
-
-        const linksHtml = linksBlock.map(linkLine => {
-          const match = linkLine.match(/\[(.*?)\]\((.*?)\)/);
-          if (!match) return '';
-          const [_, label, url] = match;
-          let icon = '';
-          if (label.toLowerCase().includes('arxiv') || url.includes('arxiv.org')) {
-            icon = '<i class="ai ai-arxiv"></i>';
-          } else if (label.toLowerCase().includes('code') || url.includes('github')) {
-            icon = '<i class="fab fa-github"></i>';
-          } else {
-            icon = '<i class="fas fa-external-link-alt"></i>';
-          }
-          return `
-            <a class="external-link button is-link is-light" href="${url}">
-              <span class="icon">${icon}</span>
-              <span>${label}</span>
-            </a>
-          `;
-        }).join('');
-
-        const html = `
-          <div class="publication-block columns is-vcentered">
-            <div class="column is-3">
-              <div class="publication-image">
-                <img alt="" src="${imageUrl}">
-              </div>
-            </div>
-            <div class="column">
-              <div class="content">
-                <h3 class="publication-title"><span>${title}</span></h3>
-                <div class="publication-authors">${authorsHtml}</div>
-                <div class="publication-venue"><span>${venue}</span></div>
-                <p class="publication-description mb-0">${description}</p>
-                <div class="publication-links field has-addons">${linksHtml}</div>
-              </div>
-            </div>
-          </div>
-        `;
-        container.innerHTML += html;
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', fetchAndRenderPublications);
-  </script>
-
-
 </body>
