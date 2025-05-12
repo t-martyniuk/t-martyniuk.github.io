@@ -508,19 +508,26 @@
         });
       }
 
-      // Open all external links in new tab
-      document.querySelectorAll('a').forEach(link => {
-        if (!link.hasAttribute('target') && !link.href.startsWith('mailto:')) {
-          link.setAttribute('target', '_blank');
-          link.setAttribute('rel', 'noopener noreferrer');
-        }
-      });
+      // Function to open all links in new tab
+      function updateExternalLinks(scope = document) {
+        scope.querySelectorAll('a').forEach(link => {
+          if (!link.hasAttribute('target') && !link.href.startsWith('mailto:')) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+          }
+        });
+      }
+
+      // Initial run on static page content
+      updateExternalLinks();
 
       // Fetch and insert markdown bio
       fetch('about.md')
         .then(response => response.text())
         .then(text => {
-          document.getElementById('bio-content').innerHTML = marked.parse(text);
+          const bioContainer = document.getElementById('bio-content');
+          bioContainer.innerHTML = marked.parse(text);
+          updateExternalLinks(bioContainer);  // Apply to inserted markdown
         });
     });
   </script>
