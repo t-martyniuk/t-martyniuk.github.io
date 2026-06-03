@@ -125,3 +125,44 @@ body {
 a.external-link {
     margin-right: 0.5rem !important;
 }
+
+.reviewer-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+.reviewer-list .reviewer-venue {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.reviewer-list .reviewer-btn {
+    font-weight: 600;
+}
+.reviewer-list .reviewer-btn.is-active {
+    background-color: #363636;
+    color: #fff;
+}
+.reviewer-list .reviewer-years {
+    margin-top: 0.35rem;
+    padding: 0.25rem 0.5rem;
+    text-align: center;
+    font-size: 90%;
+    color: #555;
+}
+.reviewer-list .outstanding-star {
+    color: #f5b301;
+    margin-left: 0.15em;
+}
+.reviewer-list .reviewer-btn.has-star {
+    position: relative;
+    overflow: visible;
+}
+.reviewer-list .reviewer-btn .btn-star {
+    position: absolute;
+    top: -0.45em;
+    right: -0.45em;
+    color: #f5b301;
+    font-size: 0.8em;
+}

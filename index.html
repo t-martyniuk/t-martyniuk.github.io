@@ -56,7 +56,7 @@
 <body>
 
   <section class="hero">
-    <div class="hero-body container is-max-desktop">
+    <div class="hero-body container is-max-widescreen">
       <div class="columns is-vcentered">
 
         <div class="column is-3">
@@ -98,19 +98,21 @@
   </section>
 
   <section class="section pt-2">
-    <div class="container is-max-desktop">
+    <div class="container is-max-widescreen">
 
       <h2 class="title is-3">News</h2>
       <div class="columns publication-block">
         <div class="column">
           <div class="content">
+              <div class="news-item"><span class="tag is-info">06/2026</span> Presenting <a href='https://arxiv.org/abs/2606.03992'>SSC-Priors</a> at CVPR in Paris poster session - available on arXiv now &#128220; !</div>
               <div class="news-item"><span class="tag is-info">05/2026</span> Recognized as an <a href="https://media.eventhosts.cc/Conferences/CVPR2026/CVPR_main_conf_2026_15.pdf">Outstanding Reviewer</a> at CVPR 2026 &#129395;</div>
+              <div class="news-item"><span class="tag is-info">04/2026</span> <a href='https://arxiv.org/abs/2606.03992'>SSC-Priors</a> is accepted to <a href="https://2026.ieeeicip.org/">IEEE ICIP 2026</a>. See you in Tampere, Finland in September!</div>
             <div class="news-item"><span class="tag is-info">01/2026</span>	<a href='https://huggingface.co/datasets/t-martyniuk/DAD-3DHeadsDataset'>DAD-3DHeads dataset</a> is now available on Hugging Face! Train, evaluate, enjoy!</div>
-            <div class="news-item"><span class="tag is-info">06/2025</span>	LiDPM <a href='https://github.com/astra-vision/LiDPM'>code</a> is available now, give it a star &#11088; !</div>
-            <div class="news-item"><span class="tag is-info">05/2025</span>	<a href='https://astra-vision.github.io/LiDPM/'>LiDPM</a> is selected as an <b>Oral Presentation</b> (7%, 25 total) at <a href="https://ieee-iv.org/2025/">IV 2025</a>.</div>
+            <div class="news-item"><span class="tag is-info">06/2025</span> Presenting <a href='https://astra-vision.github.io/LiDPM/'>LiDPM</a> at CVPR in Paris poster session and IV oral session - <a href='https://github.com/astra-vision/LiDPM'>code</a> is available now, give it a star &#11088; !</div>
             <button class="button is-small is-light show-more-btn">Show More</button>
           </div>
           <div class="content content-old" style="display: none;">
+              <div class="news-item"><span class="tag is-light">05/2025</span>	<a href='https://astra-vision.github.io/LiDPM/'>LiDPM</a> is selected as an <b>Oral Presentation</b> (7%, 25 total) at <a href="https://ieee-iv.org/2025/">IV 2025</a>.</div>
               <div class="news-item"><span class="tag is-light">03/2025</span>	<a href='https://astra-vision.github.io/LiDPM/'>LiDPM</a> is accepted to <a href="https://ieee-iv.org/2025/">IEEE IV 2025</a>.</div>
             <div class="news-item"><span class="tag is-light">06/2024</span> Talk at ELLIS Workshop on 3D Computer Vision and Robotics (<a href='https://www.youtube.com/watch?v=lW94iCPvYEU'>video</a>).</div>
             <div class="news-item"><span class="tag is-light">12/2023</span> Started PhD at <a href='https://astra-vision.github.io/'>Astra-vision</a> group. </div>
@@ -121,10 +123,61 @@
       <h2 class="title is-3">Publications</h2>
       <!-- Conference Papers -->
       <h3 class="title is-4 mt-5">Conference Papers</h3>
+            <!-- SSC-Priors -->
+      <div class="publication-block columns is-vcentered">
+
+        <div class="column is-4">
+          <div class="publication-image ">
+
+            <img alt="" src="media/ssc-priors-pipeline.png">
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="content">
+
+            <h3 class="publication-title">
+              <span>Exploring Easy Boosts for Lidar Semantic Scene Completion</span>
+            </h3>
+
+            <div class="publication-authors">
+              <span class="author-block author-me">
+                Tetiana Martyniuk,
+              </span>
+              <span class="author-block ">
+                Jonathan Seele, Alexandre Boulch, Gilles Puy, Renaud Marlet, Raoul de Charette
+              </span>
+            </div>
+
+            <div class="publication-venue">
+              <span>IEEE ICIP 2026</span>
+            </div>
+
+            <p class="publication-description mb-0">
+              <!-- Two simple, complementary priors for Lidar SSC — a semantic prior (off-the-shelf segmentor pseudo-labels) and a visibility prior (<i>empty</i> along the line-of-sight vs. <i>unknown</i> voxels) —
+  applied at the input (no architecture changes beyond the first layer), boosting mIoU +5.2 avg across 4 baselines on SemanticKITTI and pushing SSA-SC to a SOTA 28.8 mIoU among
+  reproducible single-frame methods. -->
+              Plug-and-play <i>semantic</i> and <i>visibility</i> input priors boost four lidar SSC baselines by +5.2 mIoU on average on SemanticKITTI. No architectural redesign beyond the first layer needed, reaching state of the art in mIoU among reproducible single-frame methods.
+            <div class="publication-links field has-addons">
+              <a class="external-link button is-link is-light" href="https://arxiv.org/abs/2606.03992">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
+              <a class="external-link button is-link is-light" href="https://github.com/astra-vision/SSC-Priors">
+                <span class="icon"><i class="fa fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
       <!-- LiDPM -->
       <div class="publication-block columns is-vcentered">
 
-        <div class="column is-3">
+        <div class="column is-4">
           <div class="publication-image ">
 
             <img alt="" src="media/LiDPM_bigger_zoom.png">
@@ -152,7 +205,7 @@
             </div>
 
             <p class="publication-description mb-0">
-              LiDPM is a diffusion model for scene-level LiDAR completion that leverages a vanilla DDPM avoiding the need for local diffusion approximations.
+              LiDPM is a diffusion model for scene-level lidar completion that leverages a vanilla DDPM avoiding the need for local diffusion approximations.
             <div class="publication-links field has-addons">
               <a class="external-link button is-link is-light" href="https://arxiv.org/abs/2504.17791">
                 <span class="icon"><i class="ai ai-arxiv"></i></span>
@@ -174,7 +227,7 @@
       <!-- FEAR -->
       <div class="publication-block columns is-vcentered">
 
-        <div class="column is-3">
+        <div class="column is-4">
           <div class="publication-image ">
 
             <img alt="" src="media/FEAR_comparison.png">
@@ -228,7 +281,7 @@
       <!-- DAD-3DHeads -->
       <div class="publication-block columns is-vcentered">
 
-        <div class="column is-3">
+        <div class="column is-4">
           <div class="publication-image ">
 
             <img alt="" src="media/DAD-3DHeads.png">
@@ -293,7 +346,7 @@
       <!-- DeblurGAN-v2 -->
       <div class="publication-block columns is-vcentered">
 
-        <div class="column is-3">
+        <div class="column is-4">
           <div class="publication-image ">
 
             <img alt="" src="media/arch_deblurgan2.jpg">
@@ -347,7 +400,7 @@
       <!-- Kuratowski -->
       <div class="publication-block columns is-vcentered">
 
-        <div class="column is-3">
+        <div class="column is-4">
           <div class="publication-image ">
 
             <img alt="" src="media/monoid63.png">
@@ -477,7 +530,29 @@
 
       <h2 class="title is-3">Academic services &amp; Affiliations</h2>
       <div class="content">
-        <p><b>Conference &amp; Journal Reviewer:</b> CVPR, ECCV, WACV, CVIU, IEEE IV.</p>
+        <p class="mb-2"><b>Conference &amp; Journal Reviewer:</b></p>
+        <div class="reviewer-list">
+          <div class="reviewer-venue">
+            <button class="button is-light reviewer-btn has-star" type="button">CVPR<i class="fa-solid fa-star btn-star" title="Outstanding Reviewer, CVPR 2026"></i></button>
+            <div class="reviewer-years" hidden>2023, 2026 <a href="https://media.eventhosts.cc/Conferences/CVPR2026/CVPR_main_conf_2026_15.pdf" class="outstanding-star" title="Outstanding Reviewer, CVPR 2026" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-star"></i></a></div>
+          </div>
+          <div class="reviewer-venue">
+            <button class="button is-light reviewer-btn" type="button">ECCV</button>
+            <div class="reviewer-years" hidden>2024, 2026</div>
+          </div>
+          <div class="reviewer-venue">
+            <button class="button is-light reviewer-btn" type="button">WACV</button>
+            <div class="reviewer-years" hidden>2026</div>
+          </div>
+          <div class="reviewer-venue">
+            <button class="button is-light reviewer-btn" type="button">CVIU</button>
+            <div class="reviewer-years" hidden>2025</div>
+          </div>
+          <div class="reviewer-venue">
+            <button class="button is-light reviewer-btn" type="button">IEEE IV</button>
+            <div class="reviewer-years" hidden>2025</div>
+          </div>
+        </div>
         <p><b>Associate Unit Member,</b> ELLIS Associate Unit in Lviv.</p>
       </div>
 
@@ -513,6 +588,22 @@
           }
         });
       }
+
+      // Reviewer venue buttons: toggle the year list below each
+      document.querySelectorAll('.reviewer-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const years = btn.nextElementSibling;
+          if (!years) return;
+          const isHidden = years.hasAttribute('hidden');
+          if (isHidden) {
+            years.removeAttribute('hidden');
+            btn.classList.add('is-active');
+          } else {
+            years.setAttribute('hidden', '');
+            btn.classList.remove('is-active');
+          }
+        });
+      });
 
       // Function to open all links in new tab
       function updateExternalLinks(scope = document) {
