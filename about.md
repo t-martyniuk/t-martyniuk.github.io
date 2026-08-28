@@ -3,4 +3,4 @@ I also teach Computer Vision at the [Faculty of Applied Sciences](https://apps.u
 
 Before my PhD, I was part of the core research team at several AI-driven startups.
 
-I condemn Russia for invading Ukraine, thus don't work or collaborate with Russians and/or researchers affiliated with Russian institutions.
+I condemn Russia's invasion of Ukraine and do not collaborate with Russian citizens or researchers affiliated with Russian institutions.
