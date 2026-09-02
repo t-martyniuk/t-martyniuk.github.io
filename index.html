@@ -69,7 +69,12 @@
           <h1 class="title">
             <b>Tetiana Martyniuk</b>
           </h1>
-          <div id="bio-content" class="content has-text-justified"></div>
+          <div class="content has-text-justified">
+            <p>I am a PhD student at the <a href="https://astra-vision.github.io/">Astra-vision</a> group (Inria &amp; <a href="https://valeoai.github.io/">Valeo.ai</a>) in Paris, working on 3D Computer Vision under the supervision of <a href="https://boulch.eu/">Alexandre Boulch</a>, <a href="https://sites.google.com/site/puygilles/">Gilles Puy</a>, <a href="https://imagine.enpc.fr/~renaud.marlet/">Renaud Marlet</a> and <a href="https://rdecharette.github.io/">Raoul de Charette</a>.
+            I also teach Computer Vision at the <a href="https://apps.ucu.edu.ua/en/">Faculty of Applied Sciences</a> at Ukrainian Catholic University.</p>
+            <p>Before my PhD, I was part of the core research team at several AI-driven startups.</p>
+            <p>I condemn Russia&#x2019;s invasion of Ukraine and do not collaborate with Russian citizens or researchers affiliated with Russian institutions.</p>
+          </div>
 
           <div class="buttons mt-3">
             <a class="external-link button is-light" href="mailto:name.surname@inria.fr">
@@ -83,6 +88,10 @@
             <a class="external-link button is-light" href="https://github.com/t-martyniuk">
               <span class="icon"><i class="fab fa-github"></i></span>
               <span>Github</span>
+            </a>
+            <a class="external-link button is-light" href="https://fr.linkedin.com/in/t-martyniuk" target="_blank" rel="noopener noreferrer">
+              <span class="icon"><i class="fab fa-linkedin"></i></span>
+              <span>LinkedIn</span>
             </a>
             <a class="external-link button is-light" href="media/resume-Martyniuk-03-Jun-2026.pdf" target="_blank" rel="noopener noreferrer">
               <span class="icon"><i class="fa-solid fa-file-pdf"></i></span>
@@ -575,9 +584,6 @@
 
   <!-- GitHub buttons (non-blocking) -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Markdown parser -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Show more button logic
@@ -625,14 +631,6 @@
       // Initial run on static page content
       updateExternalLinks();
 
-      // Fetch and insert markdown bio
-      fetch('about.md')
-        .then(response => response.text())
-        .then(text => {
-          const bioContainer = document.getElementById('bio-content');
-          bioContainer.innerHTML = marked.parse(text);
-          updateExternalLinks(bioContainer);  // Apply to inserted markdown
-        });
     });
   </script>
 </body>
