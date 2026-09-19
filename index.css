@@ -226,3 +226,35 @@ a.external-link {
     font-size: 70%;
     color: #777;
 }
+
+/* Publications: slightly smaller text and buttons */
+.publication-block {
+    font-size: 0.9rem;
+}
+.publication-block .publication-links .button {
+    font-size: 0.85rem;
+}
+
+/* Mobile: columns stack, so separate consecutive publications */
+@media screen and (max-width: 768px) {
+    .publication-block.columns {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Match the width of News / Publications / Services to the photo+bio block:
+   the hero pads *inside* its container, so do the same here instead of padding the section */
+.section.main-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+.section.main-content > .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+@media screen and (min-width: 769px), print {
+    .section.main-content > .container {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
