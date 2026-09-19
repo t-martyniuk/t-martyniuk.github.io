@@ -171,3 +171,58 @@ a.external-link {
     color: #f5b301;
     font-size: 0.8em;
 }
+
+/* Publication filters: field (ML / Maths) and type (colour-coded) */
+.pub-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.4rem 1rem;
+    margin: 0.5rem 0 1.5rem;
+}
+.pub-filters[hidden] {
+    display: none;
+}
+.pub-filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+.pub-filter {
+    --pub-color: #363636;
+    font-weight: 600;
+    background-color: #fff;
+    color: var(--pub-color);
+    border: 1.5px solid var(--pub-color);
+    opacity: 0.6;
+}
+.pub-filter.is-active {
+    background-color: var(--pub-color);
+    color: #fff;
+    border-color: var(--pub-color);
+    opacity: 1;
+}
+.pub-filter:focus-visible {
+    outline: 2px solid var(--pub-color);
+    outline-offset: 2px;
+}
+.pub-type-conference { --pub-color: #2f6fb7; }
+.pub-type-journal    { --pub-color: #2e8b57; }
+.pub-type-preprint   { --pub-color: #c56a00; }
+.pub-type-patent     { --pub-color: #7b4bb3; }
+.publication-block .pub-type-tag {
+    background-color: var(--pub-color);
+    color: #fff;
+    font-weight: 600;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+}
+.pub-empty {
+    color: #555;
+    font-style: italic;
+}
+
+.footer .footer-credit {
+    font-size: 70%;
+    color: #777;
+}

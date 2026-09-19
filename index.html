@@ -137,10 +137,71 @@
       </div>
 
       <h2 class="title is-3">Publications</h2>
-      <!-- Conference Papers -->
-      <h3 class="title is-4 mt-5">Conference Papers</h3>
-            <!-- SSC-Priors -->
-      <div class="publication-block columns is-vcentered">
+      <div class="pub-filters" hidden>
+        <div class="pub-filter-group">
+          <button class="button is-small is-rounded pub-filter pub-type-conference is-active" type="button" data-group="type" data-value="conference" aria-pressed="true">Conference</button>
+          <button class="button is-small is-rounded pub-filter pub-type-journal is-active" type="button" data-group="type" data-value="journal" aria-pressed="true">Journal</button>
+          <button class="button is-small is-rounded pub-filter pub-type-preprint is-active" type="button" data-group="type" data-value="preprint" aria-pressed="true">Preprint</button>
+          <button class="button is-small is-rounded pub-filter pub-type-patent" type="button" data-group="type" data-value="patent" aria-pressed="false">Patent</button>
+        </div>
+        <div class="pub-filter-group">
+          <button class="button is-small is-rounded pub-filter is-active" type="button" data-group="field" data-value="ml" aria-pressed="true">ML</button>
+          <button class="button is-small is-rounded pub-filter" type="button" data-group="field" data-value="maths" aria-pressed="false">Maths</button>
+        </div>
+      </div>
+      <p class="pub-empty" hidden>No publications match these filters.</p>
+
+      <!-- SSC-Priors journal extension -->
+      <div class="publication-block columns is-vcentered" data-field="ml" data-type="preprint" data-date="2026-09">
+
+        <div class="column is-4">
+          <div class="publication-image ">
+
+            <img alt="" src="media/ssc-priors-extension-teaser.png">
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="content">
+
+            <h3 class="publication-title">
+              <span>SSC-Priors: Exploring Semantic and Visibility Priors to Boost Lidar Semantic Scene Completion</span>
+            </h3>
+
+            <div class="publication-authors">
+              <span class="author-block author-me">
+                Tetiana Martyniuk,
+              </span>
+              <span class="author-block ">
+                Jonathan Seele, Alexandre Boulch, Gilles Puy, Renaud Marlet, Raoul de Charette
+              </span>
+            </div>
+
+            <div class="publication-venue">
+              <span class="tag pub-type-tag pub-type-preprint">Preprint</span>
+              <span>arXiv preprint, 2026</span>
+            </div>
+
+            <p class="publication-description mb-0">
+              The journal extension of SSC-Priors shows that off-the-shelf semantic pseudo-labels and ray-cast visibility, fed only as extra inputs, consistently boost four lidar SSC networks on SemanticKITTI and SSCBench-nuScenes, reaching state-of-the-art mIoU among reproducible single-frame methods. A model trained once on ground-truth labels works with any segmenter, and oracle experiments show semantics is still the main bottleneck.
+            </p>
+            <div class="publication-links field has-addons">
+              <a class="external-link button is-link is-light" href="https://arxiv.org/abs/2609.17413">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
+              <a class="external-link button is-link is-light" href="https://github.com/astra-vision/SSC-Priors">
+                <span class="icon"><i class="fa fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- SSC-Priors -->
+      <div class="publication-block columns is-vcentered" data-field="ml" data-type="conference" data-date="2026-09">
 
         <div class="column is-4">
           <div class="publication-image ">
@@ -166,6 +227,7 @@
             </div>
 
             <div class="publication-venue">
+              <span class="tag pub-type-tag pub-type-conference">Conference</span>
               <span>IEEE ICIP 2026</span>
             </div>
 
@@ -189,9 +251,8 @@
         </div>
       </div>
 
-
       <!-- LiDPM -->
-      <div class="publication-block columns is-vcentered">
+      <div class="publication-block columns is-vcentered" data-field="ml" data-type="conference" data-date="2025-06">
 
         <div class="column is-4">
           <div class="publication-image ">
@@ -217,6 +278,7 @@
             </div>
 
             <div class="publication-venue">
+              <span class="tag pub-type-tag pub-type-conference">Conference</span>
               <span>IEEE IV 2025</span> <span class="has-text-danger">(Oral Presentation)</span>
             </div>
 
@@ -240,8 +302,90 @@
           </div>
         </div>
       </div>
+
+      <!-- Zibra -->
+      <div class="publication-block columns is-vcentered" data-field="ml" data-type="patent" data-date="2025-01">
+
+        <div class="column">
+          <div class="content">
+
+            <h3 class="publication-title">
+              <span>Information compression method and apparatus</span>
+            </h3>
+
+            <div class="publication-authors">
+              <span class="author-block ">
+                Vladyslav Zavadskyi,
+              </span>
+              <span class="author-block author-me">
+                Tetiana Martyniuk
+              </span>
+            </div>
+
+            <div class="publication-venue">
+              <span class="tag pub-type-tag pub-type-patent">Patent</span>
+              <span>United States Patent, US12198391B2, Jan. 14, 2025</span>
+            </div>
+
+            <p class="publication-description mb-0">
+            This method introduces a control circuit and neural network pipeline that compresses 3D source field information into compact vector representations over subdivided spaces, enabling efficient field value estimation via a trained encoder-decoder model.
+            </p>
+            <div class="publication-links field has-addons">
+              <a class="external-link button is-link is-light" href="https://patents.google.com/patent/US12198391B2/en">
+                <span class="icon"><i class="fa fa-book" aria-hidden="true"></i></span>
+                <span>Patent</span>
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Hahn-Mazurkiewicz -->
+      <div class="publication-block columns is-vcentered" data-field="maths" data-type="preprint" data-date="2023-05">
+
+        <div class="column">
+          <div class="content">
+
+            <h3 class="publication-title">
+              <span>A Controlled Hahn-Mazurkiewicz Theorem and its Applications</span>
+            </h3>
+
+            <div class="publication-authors">
+              <span class="author-block ">
+                Taras Banakh,
+              </span>
+              <span class="author-block author-me">
+                Tetiana Martyniuk,
+              </span>
+              <span class="author-block ">
+                Magdalena Nowak, Filip Strobin
+              </span>
+            </div>
+
+            <div class="publication-venue">
+              <span class="tag pub-type-tag pub-type-preprint">Preprint</span>
+              <span>arXiv preprint, 2023</span>
+            </div>
+
+            <p class="publication-description mb-0">
+            This paper contains the proof of the controlled version of the classical Hahn-Mazurkiewicz Theorem that provides upper and lower bound of the H<span>&#246;</span>lder dimension of a metric Peano continuum as a function of its S-dimension.
+            </p>
+            <div class="publication-links field has-addons">
+              <a class="external-link button is-link is-light" href="https://arxiv.org/abs/2305.17200">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       <!-- FEAR -->
-      <div class="publication-block columns is-vcentered">
+      <div class="publication-block columns is-vcentered" data-field="ml" data-type="conference" data-date="2022-10">
 
         <div class="column is-4">
           <div class="publication-image ">
@@ -269,6 +413,7 @@
 
             </div>
             <div class="publication-venue">
+              <span class="tag pub-type-tag pub-type-conference">Conference</span>
               <span>ECCV 2022</span>
             </div>
             <p class="publication-description mb-0">
@@ -294,8 +439,9 @@
           </div>
         </div>
       </div>
+
       <!-- DAD-3DHeads -->
-      <div class="publication-block columns is-vcentered">
+      <div class="publication-block columns is-vcentered" data-field="ml" data-type="conference" data-date="2022-06">
 
         <div class="column is-4">
           <div class="publication-image ">
@@ -321,6 +467,7 @@
             </div>
 
             <div class="publication-venue">
+              <span class="tag pub-type-tag pub-type-conference">Conference</span>
               <span>CVPR 2022</span>
             </div>
 
@@ -359,8 +506,9 @@
         </div>
 
       </div>
+
       <!-- DeblurGAN-v2 -->
-      <div class="publication-block columns is-vcentered">
+      <div class="publication-block columns is-vcentered" data-field="ml" data-type="conference" data-date="2019-10">
 
         <div class="column is-4">
           <div class="publication-image ">
@@ -389,6 +537,7 @@
             </div>
 
             <div class="publication-venue">
+              <span class="tag pub-type-tag pub-type-conference">Conference</span>
               <span>ICCV 2019</span>
             </div>
 
@@ -411,10 +560,8 @@
         </div>
       </div>
 
-      <!-- Journal Papers -->
-      <h3 class="title is-4 mt-5">Journal Papers</h3>
       <!-- Kuratowski -->
-      <div class="publication-block columns is-vcentered">
+      <div class="publication-block columns is-vcentered" data-field="maths" data-type="journal" data-date="2018-01">
 
         <div class="column is-4">
           <div class="publication-image ">
@@ -443,6 +590,7 @@
             </div>
 
             <div class="publication-venue">
+              <span class="tag pub-type-tag pub-type-journal">Journal</span>
               <span>Topological Algebra and its Applications, Volume 6 Issue 1, 2018</span>
             </div>
 
@@ -451,137 +599,6 @@
             </p>
             <div class="publication-links field has-addons">
               <a class="external-link button is-link is-light" href="https://arxiv.org/abs/1508.07703">
-                <span class="icon"><i class="ai ai-arxiv"></i></span>
-                <span>arXiv</span>
-              </a>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Patents -->
-      <h3 class="title is-4 mt-5">Patents</h3>
-      <!-- Zibra -->
-      <div class="publication-block columns is-vcentered">
-
-        <div class="column">
-          <div class="content">
-
-            <h3 class="publication-title">
-              <span>Information compression method and apparatus</span>
-            </h3>
-
-            <div class="publication-authors">
-              <span class="author-block ">
-                Vladyslav Zavadskyi,
-              </span>
-              <span class="author-block author-me">
-                Tetiana Martyniuk
-              </span>
-            </div>
-
-            <div class="publication-venue">
-              <span>United States Patent, US12198391B2, Jan. 14, 2025</span>
-            </div>
-
-            <p class="publication-description mb-0">
-            This method introduces a control circuit and neural network pipeline that compresses 3D source field information into compact vector representations over subdivided spaces, enabling efficient field value estimation via a trained encoder-decoder model.
-            </p>
-            <div class="publication-links field has-addons">
-              <a class="external-link button is-link is-light" href="https://patents.google.com/patent/US12198391B2/en">
-                <span class="icon"><i class="fa fa-book" aria-hidden="true"></i></span>
-                <span>Patent</span>
-              </a>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Preprints -->
-      <h3 class="title is-4 mt-5">Preprints</h3>
-      <!-- SSC-Priors journal extension -->
-      <div class="publication-block columns is-vcentered">
-
-        <div class="column is-4">
-          <div class="publication-image ">
-
-            <img alt="" src="media/ssc-priors-extension-teaser.png">
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="content">
-
-            <h3 class="publication-title">
-              <span>SSC-Priors: Exploring Semantic and Visibility Priors to Boost Lidar Semantic Scene Completion</span>
-            </h3>
-
-            <div class="publication-authors">
-              <span class="author-block author-me">
-                Tetiana Martyniuk,
-              </span>
-              <span class="author-block ">
-                Jonathan Seele, Alexandre Boulch, Gilles Puy, Renaud Marlet, Raoul de Charette
-              </span>
-            </div>
-
-            <div class="publication-venue">
-              <span>arXiv preprint, 2026</span>
-            </div>
-
-            <p class="publication-description mb-0">
-              The journal extension of SSC-Priors shows that off-the-shelf semantic pseudo-labels and ray-cast visibility, fed only as extra inputs, consistently boost four lidar SSC networks on SemanticKITTI and SSCBench-nuScenes, reaching state-of-the-art mIoU among reproducible single-frame methods. A model trained once on ground-truth labels works with any segmenter, and oracle experiments show semantics is still the main bottleneck.
-            </p>
-            <div class="publication-links field has-addons">
-              <a class="external-link button is-link is-light" href="https://arxiv.org/abs/2609.17413">
-                <span class="icon"><i class="ai ai-arxiv"></i></span>
-                <span>arXiv</span>
-              </a>
-              <a class="external-link button is-link is-light" href="https://github.com/astra-vision/SSC-Priors">
-                <span class="icon"><i class="fa fab fa-github"></i></span>
-                <span>Code</span>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Hahn-Mazurkiewicz -->
-      <div class="publication-block columns is-vcentered">
-
-        <div class="column">
-          <div class="content">
-
-            <h3 class="publication-title">
-              <span>A Controlled Hahn-Mazurkiewicz Theorem and its Applications</span>
-            </h3>
-
-            <div class="publication-authors">
-              <span class="author-block ">
-                Taras Banakh,
-              </span>
-              <span class="author-block author-me">
-                Tetiana Martyniuk,
-              </span>
-              <span class="author-block ">
-                Magdalena Nowak, Filip Strobin
-              </span>
-            </div>
-
-            <div class="publication-venue">
-              <span>arXiv preprint, 2023</span>
-            </div>
-
-            <p class="publication-description mb-0">
-            This paper contains the proof of the controlled version of the classical Hahn-Mazurkiewicz Theorem that provides upper and lower bound of the H<span>&#246;</span>lder dimension of a metric Peano continuum as a function of its S-dimension.
-            </p>
-            <div class="publication-links field has-addons">
-              <a class="external-link button is-link is-light" href="https://arxiv.org/abs/2305.17200">
                 <span class="icon"><i class="ai ai-arxiv"></i></span>
                 <span>arXiv</span>
               </a>
@@ -630,7 +647,7 @@
 
   <footer class="footer">
     <div class="content has-text-centered">
-      <p>Inspired from <a href="https://wonjunior.github.io/">Ivan Lopes's website</a>.</p>
+      <p class="footer-credit">Inspired from <a href="https://wonjunior.github.io/">Ivan Lopes's website</a>.</p>
     </div>
   </footer>
 
@@ -669,6 +686,36 @@
           }
         });
       });
+
+      // Publication filters: a paper is shown when its field AND its type are both switched on
+      const pubFilters = document.querySelector('.pub-filters');
+      if (pubFilters) {
+        const pubBlocks = document.querySelectorAll('.publication-block[data-type]');
+        const pubEmpty = document.querySelector('.pub-empty');
+        const activeValues = group => Array.from(
+          pubFilters.querySelectorAll('.pub-filter.is-active[data-group="' + group + '"]'),
+          btn => btn.dataset.value);
+        const applyPubFilters = function() {
+          const fields = activeValues('field');
+          const types = activeValues('type');
+          let shown = 0;
+          pubBlocks.forEach(function(block) {
+            const visible = fields.includes(block.dataset.field) && types.includes(block.dataset.type);
+            block.style.display = visible ? '' : 'none';
+            if (visible) shown++;
+          });
+          if (pubEmpty) pubEmpty.hidden = shown > 0;
+        };
+        pubFilters.querySelectorAll('.pub-filter').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const active = btn.classList.toggle('is-active');
+            btn.setAttribute('aria-pressed', active);
+            applyPubFilters();
+          });
+        });
+        pubFilters.hidden = false;  // buttons only make sense with JS on
+        applyPubFilters();
+      }
 
       // Function to open all links in new tab
       function updateExternalLinks(scope = document) {
