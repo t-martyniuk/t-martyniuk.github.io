@@ -258,3 +258,9 @@ a.external-link {
         padding-right: 3rem;
     }
 }
+
+/* Publication link buttons: wrap onto several lines on narrow screens (Bulma's has-addons never wraps) */
+.publication-block .publication-links {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+}
