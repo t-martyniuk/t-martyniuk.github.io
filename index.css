@@ -240,6 +240,10 @@ a.external-link {
     .publication-block.columns {
         margin-bottom: 2rem;
     }
+    /* stacked layout: an empty image slot would just be a gap */
+    .publication-block .publication-image-placeholder {
+        display: none;
+    }
 }
 
 /* Match the width of News / Publications / Services to the photo+bio block:
